@@ -3,7 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoConnectHandler = require("./utils/mongodb");
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 
@@ -103,7 +103,7 @@ app.get("/getMsg", (req, res) => {
 
 const server = app.listen(PORT, (err) => {
   if (!err) {
-    console.log("Server is running");
+    console.log(`Server is running ${PORT}`);
   } else {
     console.log(err);
   }
@@ -121,7 +121,7 @@ const removerUserHandler = (sid) => {
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://socket-lemon.vercel.app/",
   },
 });
 
