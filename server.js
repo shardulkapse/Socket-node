@@ -121,8 +121,7 @@ const removerUserHandler = (sid) => {
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://socket-lemon.vercel.app/",
-    methods: ["GET", "POST", "PUT"],
+    origin: "*",
   },
 });
 
